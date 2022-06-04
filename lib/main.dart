@@ -1,7 +1,16 @@
+import 'package:bytebank_sqflite/screeens/contact_form.dart';
+import 'package:bytebank_sqflite/screeens/contacts_list.dart';
+import 'package:bytebank_sqflite/screeens/dashboard.dart';
 import 'package:flutter/material.dart';
+
+import 'database/app_database.dart';
+import 'models/Contact.dart';
 
 void main() {
   runApp(ByteBankpp());
+  save(Contact(0,'Italo',100)).then((id) {
+    findAll().then((contacts) => debugPrint(contacts.toString()));
+  });
 }
 
 class ByteBankpp extends StatelessWidget {
@@ -9,27 +18,18 @@ class ByteBankpp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Dashboard'),
-        ),
-        body: Column (
-          children: <Widget>[
-            Image.asset('images/bytebank_logo.png'),
-            Container (
-              height : 120,
-              width: 100,
-              color: Colors.green,
-              child :Column (
-                children: [
-                  Icon (Icons.perm_contact_cal_outlined),
-                  Text("Contacts")
-                ],
-              )
-            )
-          ],
+      theme : ThemeData (
+        primaryColor: Colors.green[900],
+        accentColor: Colors.blueAccent[700],
+        buttonTheme: ButtonThemeData (
+          buttonColor: Colors.blueAccent[700],
+          textTheme: ButtonTextTheme.primary,
         )
       ),
+      home: DashBoard(),
     );
   }
 }
+
+
+
