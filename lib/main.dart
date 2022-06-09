@@ -1,13 +1,10 @@
-import 'package:bytebank_sqflite/screeens/contact_form.dart';
-import 'package:bytebank_sqflite/screeens/contacts_list.dart';
+import 'package:bytebank_sqflite/http/webclient.dart';
 import 'package:bytebank_sqflite/screeens/dashboard.dart';
 import 'package:flutter/material.dart';
 
-import 'database/app_database.dart';
-import 'models/Contact.dart';
-
 void main() {
-  runApp(ByteBankpp());
+  runApp(ByteBankpp(),);
+  findAll();
 }
 
 class ByteBankpp extends StatelessWidget {
