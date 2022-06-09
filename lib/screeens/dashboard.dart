@@ -1,4 +1,5 @@
 import 'package:bytebank_sqflite/screeens/contacts_list.dart';
+import 'package:bytebank_sqflite/screeens/transactions_list.dart';
 import 'package:flutter/material.dart';
 
 class DashBoard extends StatelessWidget {
@@ -33,7 +34,7 @@ class DashBoard extends StatelessWidget {
                   _FeatureItem(
                     'Transaction feed',
                     Icons.description,
-                    onClick: () => print('Trasaction fedd'),
+                    onClick: () => _showTransactionList(context),
                   ),
                 ],
               ),
@@ -87,4 +88,10 @@ void _showContactsList(BuildContext context) {
   Navigator.of(context).push(
     MaterialPageRoute(builder: (context) => ContactsList()),
   );
+}
+
+void _showTransactionList(BuildContext context) {
+  Navigator.of(context).push(MaterialPageRoute(
+    builder: (context) => TransactionsList(),
+  ));
 }
