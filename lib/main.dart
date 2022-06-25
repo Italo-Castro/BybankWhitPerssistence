@@ -2,9 +2,13 @@ import 'package:bytebank_sqflite/http/webclient.dart';
 import 'package:bytebank_sqflite/screeens/dashboard.dart';
 import 'package:flutter/material.dart';
 
+import 'models/Contact.dart';
+import 'models/transaction.dart';
+
 void main() {
   runApp(ByteBankpp(),);
-  findAll();
+  //save(Transaction(200,Contact(0,'Italo',2))).then((transaction) => print(transaction));
+  //findAll().then((transactions) => print('New transactions $transactions'));
 }
 
 class ByteBankpp extends StatelessWidget {
