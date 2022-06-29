@@ -1,9 +1,5 @@
-import 'package:bytebank_sqflite/http/webclient.dart';
 import 'package:bytebank_sqflite/screeens/dashboard.dart';
 import 'package:flutter/material.dart';
-
-import 'models/Contact.dart';
-import 'models/transaction.dart';
 
 void main() {
   runApp(ByteBankpp(),);
