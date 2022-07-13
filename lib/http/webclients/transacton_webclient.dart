@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
+
 import '../../models/Contact.dart';
 import '../../models/transaction.dart';
 import 'package:http/http.dart';
@@ -29,12 +31,21 @@ class TransactionWebClient {
      */
   }
 
-  Future<Transaction> save(Transaction transaction) async {
+  Future<Transaction> save(Transaction transaction, String password) async {
     //Map<String, dynamic> transactionMap = _toMap(transaction); antes de usar o padrão de conversão jSon implementado no model.
     final String transactionJson = jsonEncode(transaction.toJson());
     final Response response = await client.post(url_base, headers: {'Content-type': 'application/json','password':'1000',}, body: transactionJson);
 
-    return Transaction.fromJson( jsonDecode(response.body));
+    //return Transaction.fromJson( jsonDecode(response.body));
+    if (response.statusCode == 400) {
+      throw Exception('there was an error submitting transaction');
+    }
+
+    if (response.statusCode == 401) {
+      throw Exception('authentication failed');
+    }
+
+    throw Exception('there was an error');
   }
 
   Map<String, dynamic> _toMap(Transaction transaction) {

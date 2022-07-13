@@ -1,3 +1,4 @@
+import 'package:bytebank_sqflite/components/transaction_auth_dialog.dart';
 import 'package:bytebank_sqflite/screeens/dashboard.dart';
 import 'package:flutter/material.dart';
 
